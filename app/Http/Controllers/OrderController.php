@@ -32,12 +32,12 @@ class OrderController extends Controller
         $items = $cart->cartItems;
         $total=0;
         foreach($items as $item){
-            $total+=$item->product->price;
+            $total += number_format($item->product->price / 13000);
         }
 
 
         if(
-            Auth::user()->charge($total*100, [
+            Auth::user()->charge($total, [
             'source' => $token,
             'receipt_email' => Auth::user()->email,
         ])){

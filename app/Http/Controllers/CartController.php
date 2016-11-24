@@ -49,7 +49,7 @@ class CartController extends Controller
         $items = $cart->cartItems;
         $total=0;
         foreach($items as $item){
-            $total+=$item->product->price;
+            $total += number_format($item->product->price / 13000);
         }
 
         return view('cart.view',['items'=>$items,'total'=>$total]);
