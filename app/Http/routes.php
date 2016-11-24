@@ -8,9 +8,9 @@ Route::post('/admin/product/save', 'ProductController@add');
 Route::get('/', 'MainController@index');
 
 // Authentication routes...
-Route::get('auth/login', 'Auth\AuthController@getLogin');
-Route::post('auth/login', 'Auth\AuthController@postLogin');
-Route::get('auth/logout', 'Auth\AuthController@getLogout');
+Route::get('login', 'LoginController@getLogin');
+Route::post('login', 'LoginController@postLogin');
+Route::get('logout', 'LoginController@getLogout');
 
 // Registration routes...
 Route::get('auth/register', 'Auth\AuthController@getRegister');

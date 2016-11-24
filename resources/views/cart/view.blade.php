@@ -33,7 +33,7 @@
                         <td class="col-sm-1 col-md-1" style="text-align: center">
                         </td>
                         <td class="col-sm-1 col-md-1 text-center"></td>
-                        <td class="col-sm-1 col-md-1 text-center"><strong>${{$item->product->price}}</strong></td>
+                        <td class="col-sm-1 col-md-1 text-center"><strong>Rp. {{ number_format($item->product->price, 0, ',', '.') }}</strong></td>
                         <td class="col-sm-1 col-md-1">
                             <a href="/removeItem/{{$item->id}}"> <button type="button" class="btn btn-danger">
                                     <span class="fa fa-remove"></span> Remove
@@ -48,7 +48,7 @@
                     <td>   </td>
                     <td>   </td>
                     <td><h3>Total</h3></td>
-                    <td class="text-right"><h3><strong>${{$total}}</strong></h3></td>
+                    <td class="text-right"><h3><strong>Rp {{ number_format($total, 0, ',', '.') }}</strong></h3></td>
                 </tr>
                 <tr>
                     <td>   </td>
@@ -64,11 +64,11 @@
         {!! csrf_field() !!}
         <script
                 src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                data-key="pk_test_p0QQDCeJQA7W9X9y0VP7QOz5"
-                data-amount="{{$total*100}}"
-                data-name="CODETutorial.IO"
+                data-key="pk_test_hkKvEhQfBdWxrrcl2df2jyi3"
+                data-amount="{{ $total * 100 / 15000 }}"
+                data-name="NicoDev"
                 data-description="Products"
-                data-image="/128x128.png"
+                {{-- data-image="/128x128.png" --}}
                 data-locale="auto">
         </script>
     </form>

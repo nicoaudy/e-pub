@@ -22,7 +22,7 @@
                                     </div>
                                     <div class="col-md-6 col-xs-6 price">
                                         <h3>
-                                            <label>${{$product->price}}</label></h3>
+                                            <label>Rp {{ number_format($product->price, 0, ',', '.') }}</label></h3>
                                     </div>
                                 </div>
                                 <p>{{$product->description}}</p>

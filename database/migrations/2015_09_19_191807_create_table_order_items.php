@@ -11,9 +11,12 @@ class CreateTableOrderItems extends Migration
         Schema::create('order_items', function(Blueprint $table)
         {
             $table->increments('id');
-            $table->integer('order_id');
-            $table->integer('product_id');
-            $table->integer('file_id');
+            $table->unsignedInteger('order_id')->nullable();
+            $table->foreign('order_id')->references('id')->on('orders');
+            $table->unsignedInteger('product_id')->nullable();
+            $table->foreign('product_id')->references('id')->on('products');
+            $table->unsignedInteger('file_id')->nullable();
+            $table->foreign('file_id')->references('id')->on('files');
             $table->timestamps();
         });
     }

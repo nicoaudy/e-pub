@@ -18,6 +18,11 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
     use Authenticatable, Authorizable, CanResetPassword;
 
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
+    }
+
     /**
      * The database table used by the model.
      *

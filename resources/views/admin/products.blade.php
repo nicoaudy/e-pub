@@ -27,9 +27,9 @@
                     @foreach ($products as $product)
                         <tr>
                             <td>{{$product->name}}</td>
-                            <td>{{$product->price}}$</td>
+                            <td>Rp. {{ $product->price }}</td>
                             <td>{{$product->file->original_filename}}</td>
-                            <td><a href="/admin/product/destroy/{{$product->id}}"><button class="btn btn-danger">Del</button></a> </td>
+                            <td><a href="/admin/product/destroy/{{$product->id}}"><button class="btn btn-danger">Delete</button></a> </td>
                         </tr>
                     @endforeach
                     </tbody>
