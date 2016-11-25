@@ -18,6 +18,10 @@ class CreateTableFiles extends Migration
             $table->string('filename');
             $table->string('mime');
             $table->string('original_filename');
+            $table->string('image_name');
+            $table->string('image_path');
+            $table->string('image_mime');
+            $table->string('image_original_filename');
             $table->timestamps();
         });
     }

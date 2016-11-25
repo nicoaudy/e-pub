@@ -14,12 +14,19 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/auth/register">Signup</a>
                         </li>
-                    @else
+                    @elseif(Auth::user()->role->name == 'Customer')
                         <li class="nav-item">
                             <a class="nav-link" href="/order">My Order <span class="fa fa-briefcase"></span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/cart">Cart <span class="fa fa-shopping-cart"></span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/logout">Logout {{ Auth::user()->name}}</a>
+                        </li>
+                    @elseif(Auth::user()->role->name == 'Admin')
+                        <li class="nav-item">
+                            <a class="nav-link" href="admin/products">Products <span class="fa fa-briefcase"></span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/logout">Logout {{ Auth::user()->name}}</a>

@@ -17,9 +17,11 @@ class CreateTableProducts extends Migration
             $table->string('name');
             $table->string('description');
             $table->string('price');
-            $table->string('imageurl');
+            $table->string('imageurl')->nullable();
+            $table->unsignedInteger('image_id')->nullable();
+            $table->foreign('image_id')->references('id')->on('files');
             $table->unsignedInteger('file_id')->nullable();
-            $table->foreign('file_id')->references('id')->on('products');
+            $table->foreign('file_id')->references('id')->on('files');
             $table->timestamps();
         });
     }

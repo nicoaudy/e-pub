@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Product;
 
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
+use Intervention\Image\Facades\Image;
 use Request;
 
 use Illuminate\Support\Facades\Storage;
@@ -14,6 +14,11 @@ use Illuminate\Support\Facades\File;
 
 class ProductController extends Controller
 {
+
+    public function getDashboard()
+    {
+        return view('admin.dashboard');
+    }
 
     public function index(){
         $products = Product::all();
@@ -32,29 +37,41 @@ class ProductController extends Controller
 
     public function add() {
 
-        $file = Request::file('file');
-        $extension = $file->getClientOriginalExtension();
+        $file               = Request::file('file');
+        $extension          = $file->getClientOriginalExtension();
         Storage::disk('local')->put($file->getFilename().'.'.$extension,  File::get($file));
 
-        $entry = new \App\File();
-        $entry->mime = $file->getClientMimeType();
-        $entry->original_filename = $file->getClientOriginalName();
-        $entry->filename = $file->getFilename().'.'.$extension;
+        $images             = Request::file('image');
+        $realPath           = $images->getRealPath();
+        $image_extension    = $images->getClientOriginalExtension();
+        $image_name         = uniqid(). $images->getClientOriginalName();
+        $path               = 'img/products/';
+        if(!File::exists($path)){
+            File::makeDirectory($path, $mode = 0777, true, true);
+        }
+        Image::make($realPath)->resize(800, 800)->save($path . $image_name);
 
+        $entry                          = new \App\File();
+        $entry->mime                    = $file->getClientMimeType();
+        $entry->original_filename       = $file->getClientOriginalName();
+        $entry->filename                = $file->getFilename().'.'.$extension;
+
+        $entry->image_name              = $image_name;
+        $entry->image_path              = $path;
+        $entry->image_mime              = $image_extension;
+        $entry->image_original_filename = $image_name;
         $entry->save();
 
-        $product  = new Product();
-        $product->file_id=$entry->id;
-        $product->name =Request::input('name');
-        $product->description =Request::input('description');
-        $product->price =Request::input('price');
-        $product->imageurl =Request::input('imageurl');
-
+        $product                = new Product();
+        $product->file_id       = $entry->id;
+        $product->name          = Request::input('name');
+        $product->description   = Request::input('description');
+        $product->price         = Request::input('price');
+        $product->imageurl      = Request::input('imageurl');
+        $product->image_id      = $entry->id;
         $product->save();
 
         return redirect('/admin/products');
 
     }
-
-    
 }

@@ -24,6 +24,7 @@ Route::group(['middleware' => 'auth:Customer'], function(){
 
 Route::group(['middleware' => 'auth:Admin', 'prefix' => 'admin'], function() {
     {
+        Route::get('/', 'ProductController@getDashboard');
         Route::get('product/new', 'ProductController@newProduct');
         Route::get('products', 'ProductController@index');
         Route::get('product/destroy/{id}', 'ProductController@destroy');

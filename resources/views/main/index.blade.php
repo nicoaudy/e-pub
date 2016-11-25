@@ -14,16 +14,16 @@
         <div class="col-md-4">
             <div class="card">
                 <div class="view overlay hm-white-slight">
-                    <img src="http://mdbootstrap.com/images/ecommerce/reg/reg%20(19).jpg"
+                    <img src="{!! asset($product->image->image_path . $product->image->image_name) !!}"
                          class="img-fluid img-responsive">
                     <a href="#">
                         <div class="mask"></div>
                     </a>
                 </div>
                 <div class="card-block">
-                    <h4 class="card-title">{{ $product->name }}</h4>
-                    <p class="card-text">{{ $product->description }}</p>
-                    <a href="/addProduct/{{$product->id}}" class="btn btn-primary">Buy now for
+                    <h4 class="card-title">{!! \Illuminate\Support\Str::words($product->name, 3,'....')  !!}</h4>
+                    <p class="card-text">{!! \Illuminate\Support\Str::words($product->description, 5,'....')  !!}</p>
+                    <a href="/addProduct/{{ $product->id }}" class="btn btn-primary">Buy now for
                         Rp {{ number_format($product->price, 0, ',', '.') }}</a>
                 </div>
             </div>

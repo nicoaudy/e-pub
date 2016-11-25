@@ -1,12 +1,4 @@
-
-
 @extends('layouts.master')
-
-@section('New Product', 'Page Title')
-
-@section('sidebar')
-    @parent
-@endsection
 
 @section('content')
     <div class="panel panel-info">
@@ -22,7 +14,6 @@
                         <label class="col-md-3 control-label" for="name">Name</label>
                         <div class="col-md-9">
                             <input id="name" name="name" type="text" placeholder="Product name" class="form-control input-md" required="">
-
                         </div>
                     </div>
                     <div class="form-group">
@@ -39,15 +30,12 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-md-3 control-label" for="imageurl">Image URL</label>
-                        <div class="col-md-9">
-                            <input id="imageurl" name="imageurl" type="text" placeholder="Image URL" class="form-control input-md" >
-
+                        <label class="col-md-3 control-label" for="image">Image</label>
+                        <div class="col-md-3">
+                            <input id="file" name="image" class="input-file" type="file">
                         </div>
-                    </div>
-                    <div class="form-group">
                         <label class="col-md-3 control-label" for="file">File</label>
-                        <div class="col-md-9">
+                        <div class="col-md-3">
                             <input id="file" name="file" class="input-file" type="file">
                         </div>
                     </div>
@@ -57,9 +45,7 @@
                             <button id="submit" name="submit" class="btn btn-primary">Insert</button>
                         </div>
                     </div>
-
                 </fieldset>
-
             </form>
         </div>
     </div>
