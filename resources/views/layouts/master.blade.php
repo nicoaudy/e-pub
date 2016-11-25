@@ -20,6 +20,8 @@
 <main>
     <div class="container">
         <div class="row">
+            @include('errors.flash_error')
+
             @yield('home')
 
             @yield('content')

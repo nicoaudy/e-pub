@@ -8,15 +8,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
 
 class CartController extends Controller
 {
-
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
 
     public function addItem ($productId){
 
@@ -49,7 +43,7 @@ class CartController extends Controller
         $items = $cart->cartItems;
         $total=0;
         foreach($items as $item){
-            $total += number_format($item->product->price / 13000);
+            $total += number_format($item->product->price / 10000);
         }
 
         return view('cart.view',['items'=>$items,'total'=>$total]);

@@ -1,18 +1,14 @@
 @extends('layouts.master')
 
-@section('Digital shop', 'Page Title')
-
-@section('sidebar')
-    @parent
-@endsection
-
 @section('content')
 
     <div style="margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
         <div class="panel panel-info">
             <div class="panel-heading">
                 <div class="panel-title">Sign Up</div>
-                <div style="float:right; font-size: 85%; position: relative; top:-10px"><a id="signinlink" href="#" onclick="$('#signupbox').hide(); $('#loginbox').show()">Sign In</a></div>
+                <div style="float:right; font-size: 85%; position: relative; top:-10px">
+                    <a id="signinlink" href="/login" onclick="$('#signupbox').hide(); $('#loginbox').show()">Sign In</a>
+                </div>
             </div>
             <div class="panel-body" >
                 <form method="POST" action="/auth/register"  class="form-horizontal" role="form">

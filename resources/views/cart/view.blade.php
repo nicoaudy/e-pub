@@ -47,7 +47,7 @@
                             </td>
                             <td>
                                 <h4>
-                                    <strong>Rp {{ number_format($total * 13000, 0, ',', '.') }}</strong> |
+                                    <strong>Rp {{ number_format($total * 10000, 0, ',', '.') }}</strong> |
                                     <strong>$ {{ $total }}</strong>
                                 </h4>
                             </td>

@@ -32,14 +32,20 @@ class Authenticate
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle($request, Closure $next, $roleName)
     {
         if ($this->auth->guest()) {
             if ($request->ajax()) {
                 return response('Unauthorized.', 401);
             } else {
-                return redirect()->guest('auth/login');
+                return redirect()->guest('login');
             }
+        }
+
+        if($this->auth->user()->role->name != $roleName){
+            $this->auth->logout();
+
+            return redirect('login')->withErrors(['Abort! Please Make Sure Your Permissions!!']);
         }
 
         return $next($request);

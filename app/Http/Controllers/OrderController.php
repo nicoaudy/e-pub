@@ -18,11 +18,6 @@ use App\CartItem;
 class OrderController extends Controller
 {
 
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     public function checkout(Request $request)
     {
         $token = $request->input('stripeToken');
@@ -32,7 +27,7 @@ class OrderController extends Controller
         $items = $cart->cartItems;
         $total=0;
         foreach($items as $item){
-            $total += number_format($item->product->price / 13000);
+            $total += number_format($item->product->price / 10000);
         }
 
 

@@ -5,7 +5,7 @@
         </button>
         <div class="container">
             <div class="collapse navbar-toggleable-xs" id="collapseEx">
-                <a class="navbar-brand" href="">E-Pub Wanna Be</a>
+                <a class="navbar-brand" href="/">E-Pub Wanna Be</a>
                 <ul class="nav navbar-nav pull-right">
                     @if(!Auth::user())
                         <li class="nav-item">
