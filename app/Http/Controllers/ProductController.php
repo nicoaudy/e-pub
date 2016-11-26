@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Product;
 
 use App\Http\Requests;
@@ -20,22 +21,26 @@ class ProductController extends Controller
         return view('admin.dashboard');
     }
 
-    public function index(){
+    public function index()
+    {
         $products = Product::all();
         return view('admin.products',['products' => $products]);
     }
 
-    public function destroy($id){
-
+    public function destroy($id)
+    {
         Product::destroy($id);
         return redirect('/admin/products');
     }
 
-    public function newProduct(){
-        return view('admin.new');
+    public function newProduct()
+    {
+        $categories = Category::all();
+        return view('admin.new', compact('categories'));
     }
 
-    public function add() {
+    public function add()
+    {
 
         $file               = Request::file('file');
         $extension          = $file->getClientOriginalExtension();
@@ -69,6 +74,7 @@ class ProductController extends Controller
         $product->price         = Request::input('price');
         $product->imageurl      = Request::input('imageurl');
         $product->image_id      = $entry->id;
+        $product->category_id   = Request::input('category');
         $product->save();
 
         return redirect('/admin/products');

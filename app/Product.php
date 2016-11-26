@@ -11,6 +11,11 @@ class Product extends Model
         return $this->belongsTo('App\File');
     }
 
+    public function category()
+    {
+        return $this->belongsTo('App\Category');
+    }
+
     public function file()
     {
         return $this->belongsTo('App\File');
