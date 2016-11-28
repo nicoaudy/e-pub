@@ -5,24 +5,24 @@
         </button>
         <div class="container">
             <div class="collapse navbar-toggleable-xs" id="collapseEx">
-                <a class="navbar-brand" href="/">E-Pub Wanna Be</a>
+                <a class="navbar-brand" href="/">Ebook</a>
                 <ul class="nav navbar-nav pull-right">
                     @if(!Auth::user())
                         <li class="nav-item">
-                            <a class="nav-link" href="/login">Login</a>
+                            <a class="nav-link" href="/login"> Masuk</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/auth/register">Signup</a>
+                            <a class="nav-link" href="/auth/register"> Daftar</a>
                         </li>
                     @elseif(Auth::user()->role->name == 'Customer')
                         <li class="nav-item">
-                            <a class="nav-link" href="/order">My Order <span class="fa fa-briefcase"></span></a>
+                            <a class="nav-link" href="/order">Histori Pembelian <span class="fa fa-briefcase"></span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/cart">Cart <span class="fa fa-shopping-cart"></span></a>
+                            <a class="nav-link" href="/cart">Keranjang Belanja <span class="fa fa-shopping-cart"></span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/logout">Logout {{ Auth::user()->name}}</a>
+                            <a class="nav-link" href="/logout">Keluar {{ Auth::user()->name}}</a>
                         </li>
                     @elseif(Auth::user()->role->name == 'Admin')
                         <li class="nav-item">

@@ -1,7 +1,6 @@
 @extends('layouts.master')
 
 @section('content')
-
     <div class="row">
         <div class="col-sm-12">
             <div class="table-responsive">
@@ -18,9 +17,6 @@
                         <tr>
                             <td>
                                 <div class="media">
-                                    <a class="thumbnail pull-left" href="#">
-                                        <img class="media-object" src="{{$item->product->imageurl}}" style="width: 100px; height: 72px;">
-                                    </a>
                                     <div class="media-body">
                                         <h4 class="media-heading"><a href="#">{{$item->product->name}}</a></h4>
                                     </div>

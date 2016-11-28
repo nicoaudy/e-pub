@@ -20,7 +20,7 @@ class ProductsTableSeeder extends Seeder
                     'name'                      => $faker->name,
                     'description'               => $faker->paragraph,
                     'price'                     => 100000,
-                    'image_id'                  => rand(1,8),
+                    'image_id'                  => rand(1,6),
                     'file_id'                   => rand(1,8),
                 ),
             ));

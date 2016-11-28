@@ -1,6 +1,7 @@
 <?php
 
 Route::get('/', 'MainController@index');
+Route::post('/', 'MainController@postSearch');
 Route::get('detail/{id}', 'MainController@getDetail');
 
 // Authentication routes...

@@ -12,6 +12,7 @@
             </div>
             <div class="panel-body" >
                 <form method="POST" action="/auth/register"  class="form-horizontal" role="form">
+                    <input type="hidden" name="role_id" value="2">
                     {!! csrf_field() !!}
                     <div class="form-group">
                         <label for="email" class="col-md-3 control-label">Email</label>

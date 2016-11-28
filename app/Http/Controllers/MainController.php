@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests;
 use App\Product;
+use Illuminate\Support\Facades\Request;
 
 class MainController extends Controller
 {
@@ -11,6 +11,18 @@ class MainController extends Controller
     {
         $products = Product::paginate(6);
         return view('main.index', compact('products'));
+    }
+
+    public function postSearch(Request $request)
+    {
+        $keyword = Request::get('search');
+
+        if($keyword)
+        {
+            $products = Product::where('name', 'like', '%' . $keyword . '%')->paginate(6);
+            return view('main.index', compact('products'));
+
+        }
     }
 
     public function getDetail($id)

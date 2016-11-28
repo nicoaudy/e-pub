@@ -27,7 +27,7 @@ class OrderController extends Controller
         $items = $cart->cartItems;
         $total=0;
         foreach($items as $item){
-            $total += number_format($item->product->price / 10000);
+            $total += number_format($item->product->price);
         }
 
 

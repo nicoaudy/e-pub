@@ -19,7 +19,7 @@ class FilesTableSeeder extends Seeder
                     'filename'                  => 'phpF7D6.tmp.pdf',
                     'mime'                      => 'application/pdf',
                     'original_filename'         => 'build-a-javascript-framework.pdf',
-                    'image_name'                => rand(1,8).'.png',
+                    'image_name'                => rand(1,6).'.png',
                     'image_path'                => 'img/products/',
                     'image_mime'                => 'png',
                     'image_original_filename'   => 'NULL',
