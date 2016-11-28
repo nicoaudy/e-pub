@@ -1,6 +1,7 @@
 <?php
 
 Route::get('/', 'MainController@index');
+Route::get('detail/{id}', 'MainController@getDetail');
 
 // Authentication routes...
 Route::get('login', 'LoginController@getLogin');

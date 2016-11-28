@@ -16,7 +16,7 @@
                 <div class="view overlay hm-white-slight">
                     <img src="{!! asset($product->image->image_path . $product->image->image_name) !!}"
                          class="img-fluid img-responsive">
-                    <a href="#">
+                    <a href="{{ url('detail', $product->id) }}">
                         <div class="mask"></div>
                     </a>
                 </div>
