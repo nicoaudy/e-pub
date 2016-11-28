@@ -10,7 +10,7 @@
                 {!! csrf_field() !!}
                 <fieldset>
                     <!-- Text input-->
-                    <div class="form-group">
+{{--                    <div class="form-group">
                         <label class="col-md-3 control-label" for="name">Category</label>
                         <div class="col-md-9">
                             <select>
@@ -20,7 +20,7 @@
                                 @endforeach
                             </select>
                         </div>
-                    </div>
+                    </div>--}}
                     <div class="form-group">
                         <label class="col-md-3 control-label" for="name">Name</label>
                         <div class="col-md-9">

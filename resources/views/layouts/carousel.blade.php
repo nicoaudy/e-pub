@@ -1,5 +1,5 @@
 <!--Main column-->
-<div class="col-md-8">
+<div class="col-md-12">
     <!--First row-->
     <div class="row">
         <div class="col-md-12">
@@ -14,21 +14,30 @@
                     <li data-target="#carousel-example-2" data-slide-to="0" class="active"></li>
                     <li data-target="#carousel-example-2" data-slide-to="1"></li>
                     <li data-target="#carousel-example-2" data-slide-to="2"></li>
+                    <li data-target="#carousel-example-2" data-slide-to="3"></li>
                 </ol>
                 <!--/.Indicators-->
 
                 <!--Slides-->
                 <div class="carousel-inner" role="listbox">
                     <div class="carousel-item active">
-                        <img src="http://mdbootstrap.com/images/ecommerce/slides/slide%20(1).jpg"
-                             alt="First slide">
+                        <img src="{{ asset('img/carousel/4.jpg') }}"
+                             alt="Third slide">
                         <div class="carousel-caption">
-                            <h4>New collection</h4>
+                            <h4>Best Seller</h4>
                             <br>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img src="http://mdbootstrap.com/images/ecommerce/slides/slide%20(2).jpg"
+                        <img src="{{ asset('img/carousel/1.jpg') }}"
+                             alt="First slide">
+                        <div class="carousel-caption">
+                            <h4>New Collection</h4>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{{ asset('img/carousel/2.jpg') }}"
                              alt="Second slide">
                         <div class="carousel-caption">
                             <h4>Get discount!</h4>
@@ -36,10 +45,10 @@
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img src="http://mdbootstrap.com/images/ecommerce/slides/slide%20(3).jpg"
+                        <img src="{{ asset('img/carousel/3.jpg') }}"
                              alt="Third slide">
                         <div class="carousel-caption">
-                            <h4>Only now for 10$</h4>
+                            <h4>Only now for IDR 250.000</h4>
                             <br>
                         </div>
                     </div>
@@ -64,10 +73,5 @@
     <!--/.First row-->
     <br>
     <hr class="extra-margins">
-
-    <div class="row">
-        @yield('content')
-    </div>
-
 </div>
 <!--/.Main column-->

@@ -74,7 +74,7 @@ class ProductController extends Controller
         $product->price         = Request::input('price');
         $product->imageurl      = Request::input('imageurl');
         $product->image_id      = $entry->id;
-        $product->category_id   = Request::input('category');
+        /*$product->category_id   = Request::input('category');*/
         $product->save();
 
         return redirect('/admin/products');

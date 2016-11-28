@@ -22,11 +22,14 @@
                 </div>
                 <div class="card-block">
                     <h4 class="card-title">{!! \Illuminate\Support\Str::words($product->name, 3,'....')  !!}</h4>
-                    <p class="card-text">{!! \Illuminate\Support\Str::words($product->description, 5,'....')  !!}</p>
+                    <p class="card-text">{!! \Illuminate\Support\Str::words($product->description, 3,'....')  !!}</p>
                     <a href="/addProduct/{{ $product->id }}" class="btn btn-primary">Buy now for
                         Rp {{ number_format($product->price, 0, ',', '.') }}</a>
                 </div>
             </div>
         </div>
     @endforeach
+    <div class="pagination">
+        {!! $products->render() !!}
+    </div>
 @endsection
