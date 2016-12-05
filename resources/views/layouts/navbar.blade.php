@@ -9,7 +9,7 @@
                 <ul class="nav navbar-nav pull-right">
                     @if(!Auth::user())
                         <li class="nav-item">
-                            <a class="nav-link" href="/login"> Masuk</a>
+                            <a class="nav-link" href="/login" data-toggle="modal" data-target="#modal-login"> Masuk</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/auth/register"> Daftar</a>
@@ -37,3 +37,5 @@
         </div>
     </nav>
 </header>
+
+@include('partials.login')

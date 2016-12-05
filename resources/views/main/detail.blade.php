@@ -43,6 +43,12 @@
 
 @section('content')
 <div class="container">
+    <div class="breadcrumb">
+        <ul>
+            <a href="{{ url('/') }}">Home </a> /
+            {{ $product->name }}
+        </ul>
+    </div>
     <div class="row">
         <div class="col-md-4">
             <div class="widget-wrapper">
@@ -80,6 +86,9 @@
                             </div>
                             <h3 class="price pull-right"><span class="tag red darken-2">Rp. {{ number_format($product->price, 0, ',', '.') }}</span></h3>
                         </div>
+                        <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal">
+                            <i class="fa fa-book"></i> Cara Pembelian
+                        </button>
                         <a href="" class="btn btn-primary btn-xs pull-right"><i class="fa fa-shopping-cart"></i> Add To Cart</a>
                         <br>
 
@@ -136,6 +145,37 @@
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <!--Content-->
+        <div class="modal-content">
+            <!--Header-->
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Cara Pembelian</h4>
+            </div>
+            <!--Body-->
+            <div class="modal-body">
+                <ul>
+                    <li>
+                        1.
+                    </li>
+                    <li>
+                        2.
+                    </li>
+                </ul>
+            </div>
+            <!--Footer-->
+        </div>
+        <!--/.Content-->
     </div>
 </div>
 @endsection
